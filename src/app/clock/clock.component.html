@@ -1,0 +1,73 @@
+<div class="flex flex-col items-center justify-center p-4 rounded-lg w-fit">
+    <div
+        class="w-[400px] h-[400px] bg-neutral-100 rounded-full shadow-xl m-4 relative"
+    >
+        <!-- Clock notches -->
+        <div class="absolute h-full w-full flex justify-center items-center">
+            <!-- Notches Hours -->
+            <div
+                *ngFor="let i of [].constructor(12); let index = index"
+                class="bg-neutral-500 w-[10px] h-[10px] rounded-full absolute z-2"
+                [ngStyle]="{
+                    transform:
+                        'rotate(' + index * 30 + 'deg) translateY(-180px)'
+                }"
+            ></div>
+            <!-- Notches Minutes -->
+            <div
+                *ngFor="let i of [].constructor(60); let index = index"
+                class="bg-neutral-400 w-[5px] h-[5px] rounded-full absolute z-1"
+                [ngStyle]="{
+                    transform: 'rotate(' + index * 6 + 'deg) translateY(-180px)'
+                }"
+            ></div>
+            <!-- Hour Hand -->
+            <div
+                class="absolute w-[6px] h-[100px] bg-neutral-800 rounded-lg z-10 top-1/2 left-1/2 origin-bottom transform -translate-x-1/2 -translate-y-full shadow-lg"
+                [ngStyle]="{
+                    transform: 'rotate(' + (hours * 30 + minutes * 0.5) + 'deg)'
+                }"
+            ></div>
+            <!-- Minute Hand -->
+            <div
+                class="absolute w-[4px] h-[140px] bg-neutral-600 rounded-lg z-10 top-1/2 left-1/2 origin-bottom transform -translate-x-1/2 -translate-y-full shadow-lg"
+                [ngStyle]="{
+                    transform: 'rotate(' + minutes * 6 + 'deg)'
+                }"
+            ></div>
+            <!-- Second Hand -->
+            <div
+                class="absolute w-[2px] h-[170px] bg-red-500 rounded-lg z-10 top-1/2 left-1/2 origin-bottom transform -translate-x-1/2 -translate-y-full shadow-lg"
+                [ngStyle]="{
+                    transform:
+                        'rotate(' +
+                        (seconds * 6 + milliseconds * 0.006) +
+                        'deg)'
+                }"
+            ></div>
+            <div
+                class="absolute w-[12px] h-[12px] bg-neutral-500 rounded-full z-20"
+            ></div>
+        </div>
+    </div>
+
+    <div
+        class="flex flex-col items-center justify-center bg-neutral-200 rounded-lg shadow-lg w-fit overflow-hidden"
+    >
+        <div
+            class="flex flex-row items-center justify-center p-4 bg-neutral-400 rounded-lg shadow-lg text-white text-2xl font-bold w-full"
+        >
+            <p>{{ displayHours }}</p>
+            :
+            <p>{{ displayMinutes }}</p>
+            :
+            <p>{{ displaySeconds }}</p>
+        </div>
+
+        <!-- Title -->
+        <div class="p-2 m-2 text-neutral-900 text-2xl font-bold">
+            {{ title }}
+        </div>
+    </div>
+    <!-- Time -->
+</div>
