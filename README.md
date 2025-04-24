@@ -1,5 +1,13 @@
 # Clock
 
+## Description
+
+This project is an example of a dynamic, responsive Multiple Timezone Clock Wall, built using Angular and TailwindCSS. The purpose of this clock wall is to display the current time for multiple timezones simultaneously, with each clock dynamically adjusting. The clocks are designed to be visually appealing, and easy to use, utilizing modern web technologies.
+
+![Project Preview](public/example.jpg)
+
+---
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
 
 ## Development server
